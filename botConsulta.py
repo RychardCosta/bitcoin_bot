@@ -10,17 +10,21 @@ from salvarLog import carregarCompra, salvarCompra
 
 def on_message(ws, message):
     message = json.loads(message)
-
     price = message["data"]["price"]
+ 
+    media = 10000
+
+    
     print("###################3")
     print("Preço atual do BTC: ", price)
     print("Ultima Compra:", carregarCompra())
     print("###################")
     
-    if price < 10000 and price < carregarCompra():
+    
+    if price <= float(carregarCompra()) and price <= float(media):
         salvarCompra(comprar(price))
         print("#################")
-
+    
     
 
 def on_error(ws, error):
