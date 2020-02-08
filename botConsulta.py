@@ -12,10 +12,10 @@ def on_message(ws, message):
     message = json.loads(message)
 
     price = message["data"]["price"]
-    print("Ultima compra:", carregarCompra())
     
     if price < 10000 and price < carregarCompra():
         salvarCompra(comprar(price))
+        print("Compra feita com sucesso no valor de :", price)
     
 
 def on_error(ws, error):

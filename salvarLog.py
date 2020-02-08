@@ -22,4 +22,3 @@ def carregarCompra():
     except Exception as error:
         print("Erro ao carregar!")
         print(error)
-
