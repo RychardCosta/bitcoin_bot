@@ -1,5 +1,5 @@
 from botConsulta import valorBtcEmTempoReal
-from salvarLog import *
+from salvarLog import carregarCompra, salvarCompra
 
 
 if __name__ == "__main__":

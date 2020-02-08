@@ -5,17 +5,22 @@ import websocket
 import requests
 
 from botNegociar import *
-from salvarLog import *
+from salvarLog import carregarCompra, salvarCompra
 
 
 def on_message(ws, message):
     message = json.loads(message)
 
     price = message["data"]["price"]
+    print("###################3")
+    print("Preço atual do BTC: ", price)
+    print("Ultima Compra:", carregarCompra())
+    print("###################")
     
     if price < 10000 and price < carregarCompra():
         salvarCompra(comprar(price))
-        print("Compra feita com sucesso no valor de :", price)
+        print("#################")
+
     
 
 def on_error(ws, error):
