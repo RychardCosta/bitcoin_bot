@@ -5,20 +5,18 @@ import websocket
 import requests
 
 from botNegociar import *
+from salvarLog import *
+
 
 def on_message(ws, message):
     message = json.loads(message)
 
     price = message["data"]["price"]
-
-
-    if ultimaCompra() == 0:
-        ultimaCompra(9800)
-
-    elif price < 10000 and price < ultimaCompra():
-        compra = comprar(price)
-        ultimaCompra(compra)
-
+    print("Ultima compra:", carregarCompra())
+    
+    if price < 10000 and price < carregarCompra():
+        salvarCompra(comprar(price))
+    
 
 def on_error(ws, error):
     print(error)
