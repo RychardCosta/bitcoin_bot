@@ -3,7 +3,7 @@ import pickle
 
 def salvarCompra(ultimaCompra):
     try:
-        with open("database.db", "wb") as file:
+        with open("databaseCompra.db", "wb") as file:
             pickle.dump(ultimaCompra, file)
 
     except Exception as error:
@@ -12,7 +12,7 @@ def salvarCompra(ultimaCompra):
 
 def carregarCompra():
     try:
-        with open("database.db", "rb") as file:
+        with open("databaseCompra.db", "rb") as file:
             ultimaCompra = pickle.load(file)
         
             return ultimaCompra
@@ -23,3 +23,28 @@ def carregarCompra():
         print("Erro ao carregar!")
         print(error)
 
+
+def salvarVenda(ultimaVenda):
+    try:
+        with open("databaseVenda.db", "wb") as file:
+            pickle.dump(ultimaVenda, file)
+
+    except Exception as error:
+        print("Erro ao salvar!")
+        print(error)
+
+def carregarVenda():
+    try:
+        with open("databaseVenda.db", "rb") as file:
+            ultimaVenda = pickle.load(file)
+        
+            return ultimaVenda
+
+    except FileNotFoundError: 
+        print("Nenhuma Venda realizada anteriormente!")
+    except Exception as error:
+        print("Erro ao carregar!")
+        print(error)
+
+
+print(carregarVenda())

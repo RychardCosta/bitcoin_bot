@@ -1,3 +1,4 @@
 teste.py
 __pycache__
-database.py
+databaseVenda.py
+databaseCompra.py

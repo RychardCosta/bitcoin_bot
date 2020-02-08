@@ -5,27 +5,31 @@ import websocket
 import requests
 
 from botNegociar import *
-from salvarLog import carregarCompra, salvarCompra
+from salvarLog import *
 
 
 def on_message(ws, message):
     message = json.loads(message)
     price = message["data"]["price"]
- 
     media = 10000
 
     
     print("###################3")
     print("Preço atual do BTC: ", price)
-    print("Ultima Compra:", carregarCompra())
+    print("Ultima Compra: ", carregarCompra())
+    if carregarVenda():
+        print("Ultima venda: ", carregarVenda())
+    else:
+        pass
     print("###################")
     
     
     if price <= float(carregarCompra()) and price <= float(media):
         salvarCompra(comprar(price))
         print("#################")
-    
-    
+    if price > float(carregarCompra()) and price >= float(carregarVenda()):
+        salvarVenda(vender(price))
+        print("#################")
 
 def on_error(ws, error):
     print(error)
