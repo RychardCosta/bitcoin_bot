@@ -7,7 +7,7 @@ def salvarCompra(ultimaCompra):
             pickle.dump(ultimaCompra, file)
 
     except Exception as error:
-        print("Erro ao salvar!")
+        print("Erro ao salvar compras !")
         print(error)
 
 def carregarCompra():
@@ -21,7 +21,7 @@ def carregarCompra():
         pass
 
     except Exception as error:
-        print("Erro ao carregar!")
+        print("Erro ao carregar compras!")
         print(error)
 
 
@@ -33,7 +33,7 @@ def salvarVenda(ultimaVenda):
             pickle.dump(ultimaVenda, file)
 
     except Exception as error:
-        print("Erro ao salvar!")
+        print("Erro ao salvar vendas!")
         print(error)
 
 def carregarVenda():
@@ -47,7 +47,7 @@ def carregarVenda():
         pass
  
     except Exception as error:
-        print("Erro ao carregar!")
+        print("Erro ao carregar vendas!")
         print(error)
 
 
@@ -61,7 +61,7 @@ def salvarQuantidadeDeCompras(Compra=0):
             pickle.dump(Compra, file)
 
     except Exception as error:
-        print("Erro ao salvar!")
+        print("Erro ao salvar quantidade de compras!")
         print(error)
 
 def carregarQuantidadeDeCompras():
@@ -75,7 +75,7 @@ def carregarQuantidadeDeCompras():
         pass
        
     except Exception as error:
-        print("Erro ao carregar!")
+        print("Erro ao carregar quantidade de compras!")
         print(error)
 
 
@@ -86,13 +86,13 @@ def salvarQuantidadeDeVendas(Venda=0):
             pickle.dump(Venda, file)
 
     except Exception as error:
-        print("Erro ao salvar!")
+        print("Erro ao salvar quantidade de vendas!")
         print(error)
 
 def carregarQuantidadeDeVendas():
     try:
         with open("quantidadeDeVendas.db", "rb") as file:
-            carregarQuantidadeDeCompras = pickle.load(file)
+            carregarQuantidadeDeVendas = pickle.load(file)
         
             return carregarQuantidadeDeVendas
 
@@ -100,5 +100,5 @@ def carregarQuantidadeDeVendas():
         pass
         
     except Exception as error:
-        print("Erro ao carregar!")
+        print("Erro ao carregar quantidade de vendas!")
         print(error)
