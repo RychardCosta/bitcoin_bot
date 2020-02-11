@@ -9,14 +9,29 @@ def infoBTC():
     BTC_message = rq.text
     
     BTC_json = json.loads(BTC_message)
-    #price = BTC_json["data"]["last"]
-    price = 44000
+    price = BTC_json["data"]["last"]
+    
 
     alta = float(BTC_json["data"]["high"])
     baixa = float(BTC_json["data"]["low"])
     media = int((alta + baixa) / 2)
 
     print(price)
+
+       
+    if carregarVenda():
+        print("Ultima venda: ", float(carregarVenda()))
+    
+    if not carregarVenda():
+        salvarVenda(float(alta))
+    
+    if carregarCompra():
+        print("Ultima compra: ", float(carregarCompra()))
+        print("################### " * 7)
+
+    if not carregarCompra():
+        salvarCompra(float(media))  
+
 
     
 
