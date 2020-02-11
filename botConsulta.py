@@ -25,8 +25,7 @@ def infoBTC():
         print("Quantidade de vendas: ", carregarQuantidadeDeVendas())
     
     if not carregarVenda():
-        media2 = int((media + alta) / 2)
-        salvarVenda(float(media2))
+        salvarVenda(float(media))
 
     
     if carregarCompra():
