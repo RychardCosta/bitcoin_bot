@@ -4,3 +4,4 @@ databaseVenda.db
 databaseCompra.db
 quantidadeDeCompras.db
 quantidadeDeVendas.db
+api_key.py

@@ -4,12 +4,23 @@ import requests
 from botNegociar import *
 from salvarLog import *
 
-def infoBTC():
-    rq = requests.get("https://api.bitcointrade.com.br/v3/public/BRLBTC/ticker")
-    BTC_message = rq.text
+def infoBTC(url, url2):
+
+    payload = {}
+    headers = {
+        'Content-Type': 'application/json'
+        }
+
+    response = requests.request("GET", url, headers=headers, data = payload)
     
+        
+    BTC_message = response.text.encode('utf8')
     BTC_json = json.loads(BTC_message)
+
+    
     price = BTC_json["data"]["last"]
+
+
     
 
     alta = float(BTC_json["data"]["high"])
@@ -53,7 +64,7 @@ def infoBTC():
             print("Falha ao realizar a compra!")
             print("#################" * 7)
             
-    if float(price) > float(carregarCompra()) and float(price) >= float(carregarVenda()):
+    if float(price) > float(carregarCompra()) and float(price) > float(carregarVenda()):
         try:
             salvarVenda(vender(float(price)))
             print("#################" * 7)
@@ -65,6 +76,4 @@ def infoBTC():
 
 
             
-
-
 
