@@ -18,7 +18,8 @@ def carregarCompra():
             return ultimaCompra
 
     except FileNotFoundError: 
-        print("Nenhuma compra realizada anteriormente!")
+        pass
+        #print("Nenhuma compra realizada anteriormente!")
     except Exception as error:
         print("Erro ao carregar!")
         print(error)
@@ -41,10 +42,11 @@ def carregarVenda():
             return ultimaVenda
 
     except FileNotFoundError: 
-        print("Nenhuma Venda realizada anteriormente!")
+        pass
+        #print("Nenhuma Venda realizada anteriormente!")
     except Exception as error:
         print("Erro ao carregar!")
         print(error)
 
 
-print(carregarVenda())
+

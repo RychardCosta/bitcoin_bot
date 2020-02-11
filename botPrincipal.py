@@ -1,14 +1,17 @@
-from botConsulta import valorBtcEmTempoReal
-from salvarLog import *
+import time
+
+
+from botConsulta import infoBTC
+
 
 
 if __name__ == "__main__":
-    if not carregarCompra():
-        valorInicial = input("Digite o valor da sua primeira compra: ")
-        salvarCompra(valorInicial)
-    if not carregarVenda():
-        valorInicial = input("Digite o valor da sua primeira venda: ")
-        salvarVenda(valorInicial)
-    valorBtcEmTempoReal()
-    
-    
+    while True:
+        
+        infoBTC()
+
+
+        time.sleep(2)
+
+        
+       
