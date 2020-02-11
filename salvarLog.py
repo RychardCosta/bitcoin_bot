@@ -19,10 +19,12 @@ def carregarCompra():
 
     except FileNotFoundError: 
         pass
-        #print("Nenhuma compra realizada anteriormente!")
+
     except Exception as error:
         print("Erro ao carregar!")
         print(error)
+
+
 
 
 def salvarVenda(ultimaVenda):
@@ -43,10 +45,60 @@ def carregarVenda():
 
     except FileNotFoundError: 
         pass
-        #print("Nenhuma Venda realizada anteriormente!")
+ 
     except Exception as error:
         print("Erro ao carregar!")
         print(error)
 
 
 
+
+def salvarQuantidadeDeCompras(Compra=0):
+    try:
+        Compra = Compra + 1
+        
+        with open("quantidadeDeCompras.db", "wb") as file:
+            pickle.dump(Compra, file)
+
+    except Exception as error:
+        print("Erro ao salvar!")
+        print(error)
+
+def carregarQuantidadeDeCompras():
+    try:
+        with open("quantidadeDeCompras.db", "rb") as file:
+            quantidadeDeCompras = pickle.load(file)
+        
+            return quantidadeDeCompras
+
+    except FileNotFoundError: 
+        pass
+       
+    except Exception as error:
+        print("Erro ao carregar!")
+        print(error)
+
+
+def salvarQuantidadeDeVendas(Venda=0):
+    try:
+       Venda = Venda + 1
+       with open("quantidadeDeVendas.db", "wb") as file:
+            pickle.dump(Venda, file)
+
+    except Exception as error:
+        print("Erro ao salvar!")
+        print(error)
+
+def carregarQuantidadeDeVendas():
+    try:
+        with open("quantidadeDeVendas.db", "rb") as file:
+            carregarQuantidadeDeCompras = pickle.load(file)
+        
+            return carregarQuantidadeDeVendas
+
+    except FileNotFoundError: 
+        pass
+        
+    except Exception as error:
+        print("Erro ao carregar!")
+        print(error)

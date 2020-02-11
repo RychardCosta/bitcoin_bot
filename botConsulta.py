@@ -16,25 +16,26 @@ def infoBTC():
     baixa = float(BTC_json["data"]["low"])
     media = int((alta + baixa) / 2)
 
-    print(price)
+
+    print("Valor do BTC: R$ ", float(price))
 
        
     if carregarVenda():
-        print("Ultima venda: ", float(carregarVenda()))
+        print("Ultima venda: R$ ", float(carregarVenda()))
+        print("Quantidade de vendas: ", carregarQuantidadeDeVendas())
     
     if not carregarVenda():
-        salvarVenda(float(alta))
+        media2 = int((media + alta) / 2)
+        salvarVenda(float(media2))
+
     
     if carregarCompra():
-        print("Ultima compra: ", float(carregarCompra()))
+        print("Ultima compra: R$ ", float(carregarCompra()))
+        print("Quantidade de compras: ", carregarQuantidadeDeCompras())
         print("################### " * 7)
 
     if not carregarCompra():
         salvarCompra(float(media))  
-
-
-    
-
 
         
     if float(price) < float(carregarCompra()) and float(price) <= float(media):
@@ -42,9 +43,12 @@ def infoBTC():
         print("#################" * 7)
     if float(price) > float(carregarCompra()) and float(price) >= float(carregarVenda()) and float(price) >= float(media):
         salvarVenda(vender(price))
-        print("#################" * 7) 
+        print("#################" * 7)
+
+
             
 
 
 
 
+infoBTC()

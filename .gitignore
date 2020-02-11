@@ -2,3 +2,5 @@ teste.py
 __pycache__
 databaseVenda.db
 databaseCompra.db
+quantidadeDeCompras.db
+quantidadeDeVendas.db
