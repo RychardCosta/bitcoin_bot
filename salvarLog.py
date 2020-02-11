@@ -53,9 +53,12 @@ def carregarVenda():
 
 
 
-def salvarQuantidadeDeCompras(Compra=0):
+def salvarQuantidadeDeCompras(Compra):
     try:
-        Compra = Compra + 1
+        if Compra:
+            Compra = int(Compra + 1)
+        else: 
+            Compra = 1
         
         with open("quantidadeDeCompras.db", "wb") as file:
             pickle.dump(Compra, file)
@@ -79,10 +82,14 @@ def carregarQuantidadeDeCompras():
         print(error)
 
 
-def salvarQuantidadeDeVendas(Venda=0):
+def salvarQuantidadeDeVendas(Venda):
     try:
-       Venda = Venda + 1
-       with open("quantidadeDeVendas.db", "wb") as file:
+        if Venda:
+            Venda = int(Venda + 1)
+        else: 
+            Venda = 1
+        
+        with open("quantidadeDeVendas.db", "wb") as file:
             pickle.dump(Venda, file)
 
     except Exception as error:
