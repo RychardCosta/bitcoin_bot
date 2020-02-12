@@ -3,6 +3,7 @@ import requests
 
 from botNegociar import *
 from salvarLog import *
+import botBalance
 
 def infoBTC(url, url2):
 
@@ -58,7 +59,7 @@ def infoBTC(url, url2):
         
     if float(price) < float(carregarCompra()) and float(price) <= float(media):
         try:
-            salvarCompra(comprar(float(price)))
+            salvarCompra(comprar(float(price), float(botBalance.BTCbalanceforbuy)))
             print("#################" * 7)
         except:
             print("Falha ao realizar a compra!")
@@ -66,7 +67,7 @@ def infoBTC(url, url2):
             
     if float(price) > float(carregarCompra()) and float(price) > float(carregarVenda()):
         try:
-            salvarVenda(vender(float(price)))
+            salvarVenda(vender(float(price), float(botBalance.BTCbalanceforsell)))
             print("#################" * 7)
         except:
             print("Falha ao realizar a venda!")
@@ -76,4 +77,5 @@ def infoBTC(url, url2):
 
 
             
+
 

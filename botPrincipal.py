@@ -1,6 +1,3 @@
-import time
-
-
 from botConsulta import infoBTC
 import salvarLog
 
@@ -31,7 +28,7 @@ if __name__ == "__main__":
             while True:
                 try:
                     infoBTC(url, url2)
-                    time.sleep(2)
+                    
                 except:
                     print("Erro ao ativar o bot!")
                     break
