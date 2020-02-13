@@ -9,8 +9,7 @@ def comprar(valor, quanti):
     
     url = "https://api.bitcointrade.com.br/v3/market/create_order"
     payload = "{\n  \"pair\":\"BRLBTC\",\n  \"amount\": " + str(float(quanti)) + ",\n  \"type\": \"sell\",\n  \"subtype\": \"limited\",\n  \"unit_price\": " + str(int(valor)) + "\n""}"
-    payload2 = "{\n  \"pair\":\"BRLBTC\",\n  \"amount\": 0.5,\n  \"type\": \"sell\",\n  \"subtype\": \"limited\",\n  \"unit_price\": 14500\n}"
-
+    
     headers = {
         'Content-Type': 'application/json',
         'x-api-key': api_key.api_key,
@@ -23,14 +22,14 @@ def comprar(valor, quanti):
 
     print(message)
 
-    salvarLog.salvarQuantidadeDeCompras(salvarLog.carregarQuantidadeDeCompras(), botBalance.BTCbalanceforbuy())
+    salvarLog.salvarQuantidadeDeCompras(salvarLog.carregarQuantidadeDeCompras())
 
     return valor
 
 def vender(valor, quanti):
     url = "https://api.bitcointrade.com.br/v3/market/create_order"
     payload = "{\n  \"pair\":\"BRLBTC\",\n  \"amount\": " + str(float(quanti)) + ",\n  \"type\": \"sell\",\n  \"subtype\": \"limited\",\n  \"unit_price\": " + str(int(valor)) + "\n""}"
-    payload2 = "{\n  \"pair\":\"BRLBTC\",\n  \"amount\": 0.5,\n  \"type\": \"buy\",\n  \"subtype\": \"limited\",\n  \"unit_price\": 14500\n}"
+    
 
     headers = {
         'Content-Type': 'application/json',
@@ -44,7 +43,7 @@ def vender(valor, quanti):
 
     print(message)
 
-    salvarLog.salvarQuantidadeDeVendas(salvarLog.carregarQuantidadeDeVendas(), botBalance.BTCbalanceforsell())
+    salvarLog.salvarQuantidadeDeVendas(salvarLog.carregarQuantidadeDeVendas())
     return valor
 
 
