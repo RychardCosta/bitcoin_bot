@@ -2,6 +2,7 @@ import salvarLog
 import requests
 import json
 
+import botBalance
 import api_key
 
 def comprar(valor, quanti):
@@ -18,8 +19,11 @@ def comprar(valor, quanti):
     response = requests.request("POST", url, headers=headers, data = payload)
     responseJson = json.loads(response.text.encode('utf8'))
 
-    print("Compra realizada no valor de: R$ ", float(valor))
-    salvarLog.salvarQuantidadeDeCompras(salvarLog.carregarQuantidadeDeCompras())
+    message = responseJson["message"]
+
+    print(message)
+
+    salvarLog.salvarQuantidadeDeCompras(salvarLog.carregarQuantidadeDeCompras(), botBalance.BTCbalanceforbuy())
 
     return valor
 
@@ -35,8 +39,12 @@ def vender(valor, quanti):
 
     response = requests.request("POST", url, headers=headers, data = payload)
     responseJson = json.loads(response.text.encode('utf8'))
-    print("Venda realizada no valor de: R$ ", float(valor))
-    salvarLog.salvarQuantidadeDeVendas(salvarLog.carregarQuantidadeDeVendas())
+
+    message = responseJson["message"]
+
+    print(message)
+
+    salvarLog.salvarQuantidadeDeVendas(salvarLog.carregarQuantidadeDeVendas(), botBalance.BTCbalanceforsell())
     return valor
 
 

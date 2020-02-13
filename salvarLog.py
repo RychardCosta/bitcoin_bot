@@ -1,5 +1,7 @@
 import pickle
 
+import botBalance
+
 
 def salvarCompra(ultimaCompra):
     try:
@@ -55,7 +57,7 @@ def carregarVenda():
 
 def salvarQuantidadeDeCompras(Compra):
     try:
-        if Compra:
+        if Compra: 
             Compra = int(Compra + 1)
         else: 
             Compra = 1
