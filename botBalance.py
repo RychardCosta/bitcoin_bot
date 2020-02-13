@@ -16,7 +16,7 @@ def BTCbalanceforbuy():
 
     valorDisponivel = responseJson["data"][0]["available_amount"]
 
-    return valorDisponivel
+    return float(valorDisponivel)
 
 def BTCbalanceforsell():
     url = "https://api.bitcointrade.com.br/v3/wallets/balance"
@@ -31,5 +31,6 @@ def BTCbalanceforsell():
 
     valorDisponivel = responseJson["data"][1]["available_amount"]
 
-    return valorDisponivel
+
+    return float(valorDisponivel)
 
