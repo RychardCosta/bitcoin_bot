@@ -45,6 +45,3 @@ def vender(valor, quanti):
 
     salvarLog.salvarQuantidadeDeVendas(salvarLog.carregarQuantidadeDeVendas())
     return valor
-
-
-

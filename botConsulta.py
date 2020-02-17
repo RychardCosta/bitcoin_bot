@@ -57,7 +57,7 @@ def infoBTC(url, url2):
         salvarCompra((media))  
 
         
-    if float(price) < float(carregarCompra()) and float(price) <= float(media):
+    if float(price) < float(carregarCompra()) and float(price) < float(media):
         try:
             salvarCompra(comprar(float(price), botBalance.BTCbalanceforbuy()))
             print("#################" * 7)
@@ -65,7 +65,7 @@ def infoBTC(url, url2):
             print("Falha ao realizar a compra!")
             print("#################" * 7)
             
-    if float(price) > float(carregarCompra()) and float(price) > float(carregarVenda()):
+    if float(price) > float(carregarCompra()) and float(price) > float(carregarVenda()) and float(carregarCompra()) != float(media):
         try:
             salvarVenda(vender(float(price), botBalance.BTCbalanceforsell()))
             print("#################" * 7)
