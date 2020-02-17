@@ -1,3 +1,5 @@
 # Exemplo de API_KEY
+#Você deverá criar um arquivo chamado api_key.py
+#E colar sua chave do BitCoin Trade
 
-apki_key = "SUA API KEY"
+api_key = "SUA API KEY"
